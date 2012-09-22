@@ -27,4 +27,4 @@ class GenericResource(ModelResource):
         # Hack to climb the prototype chain to get the parent resource
         # for this given uri.
         parent_resource = view.func_closure[0].cell_contents.func_closure[0].cell_contents
-        return parent_resource.obj_get(**self.remove_api_resource_names(kwargs))
+        return parent_resource.obj_get(request,**self.remove_api_resource_names(kwargs))
